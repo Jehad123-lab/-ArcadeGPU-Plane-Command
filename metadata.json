@@ -1,0 +1,6 @@
+{
+  "name": "Remix: ArcadeGPU: Plane Command",
+  "description": "A vertically scrolling top-down shoot 'em up game built using ArcadeGPU.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

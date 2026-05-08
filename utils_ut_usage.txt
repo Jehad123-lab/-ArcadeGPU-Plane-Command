@@ -1,0 +1,53 @@
+99:    return UT.SHUFFLE(arr);
+202:    return a.map((v, i) => UT.LERP(v, b[i], t));
+214:    const t = UT.MIX(tl, tr, t1);
+215:    const b = UT.MIX(bl, br, t1);
+216:    return UT.MIX(t, b, t2);
+275:    return Math.abs(a[0]) <= UT.EPSILON && Math.abs(a[1]) <= UT.EPSILON;
+284:    return UT.VEC2_ADD(base, UT.VEC2_MULTIPLY(spread, rand));
+294:    const c = UT.VEC2_SUBSTRACT(e, b);
+342:    const len = UT.VEC2_LENGTH(a);
+491:    return Math.acos(UT.VEC2_DOT(a, b) / (UT.VEC2_LENGTH(a) * UT.VEC2_LENGTH(b)));
+568:      const f = UT.VEC2_2D_TO_ISO([-depth * 0.5, 0]);
+569:      const l = UT.VEC2_2D_TO_ISO([0, width * 0.5]);
+570:      const r = UT.VEC2_2D_TO_ISO([0, -width * 0.5]);
+571:      const b = UT.VEC2_2D_TO_ISO([depth * 0.5, 0]);
+576:      const f = UT.VEC2_2D_TO_ISO([depth * 0.5, 0]);
+577:      const l = UT.VEC2_2D_TO_ISO([0, -width * 0.5]);
+578:      const r = UT.VEC2_2D_TO_ISO([0, width * 0.5]);
+579:      const b = UT.VEC2_2D_TO_ISO([-depth * 0.5, 0]);
+584:      const f = UT.VEC2_2D_TO_ISO([0, depth * 0.5]);
+585:      const l = UT.VEC2_2D_TO_ISO([-width * 0.5, 0]);
+586:      const r = UT.VEC2_2D_TO_ISO([width * 0.5, 0]);
+587:      const b = UT.VEC2_2D_TO_ISO([0, depth * 0.5]);
+592:      const f = UT.VEC2_2D_TO_ISO([0, -depth * 0.5]);
+593:      const l = UT.VEC2_2D_TO_ISO([width * 0.5, 0]);
+594:      const r = UT.VEC2_2D_TO_ISO([-width * 0.5, 0]);
+595:      const b = UT.VEC2_2D_TO_ISO([0, depth * 0.5]);
+643:    return Math.abs(a[0]) <= UT.EPSILON && Math.abs(a[1]) <= UT.EPSILON && Math.abs(a[2]) <= UT.EPSILON;
+651:    const rand3 = UT.VEC3_CREATE(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5);
+652:    return UT.VEC3_ADD(base, UT.VEC3_MULTIPLY(spread, rand3));
+662:    const c = UT.VEC3_SUBSTRACT(e, b);
+715:    const len = UT.VEC3_LENGTH(a);
+811:    return Math.acos(UT.VEC3_DOT(a, b) / (UT.VEC3_LENGTH(a) * UT.VEC3_LENGTH(b)));
+953:    return Math.abs(a[0]) <= UT.EPSILON && Math.abs(a[1]) <= UT.EPSILON && Math.abs(a[2]) <= UT.EPSILON && Math.abs(a[3]) <= UT.EPSILON;
+1189:    UT.MAT3_TRANSLATE(position[0], position[1], out);
+1190:    UT.MAT3_MULTIPLY(out, UT.MAT3_ROTATE(rotation), out);
+1191:    UT.MAT3_MULTIPLY(out, UT.MAT3_SCALE(scale[0], scale[1]), out);
+1192:    UT.MAT3_MULTIPLY(out, UT.MAT3_TRANSLATE(-offset[0], -offset[1]), out);
+1372:      matrices[i + 1] = UT.MAT4_MULTIPLY(matrices[i], matrices[i + 1]);
+1619:    UT.MAT4_TRANSLATE(position[0], position[1], position[2], out);
+1620:    UT.MAT4_MULTIPLY(out, quaternion.toMatrix4(), out);
+1621:    UT.MAT4_MULTIPLY(out, UT.MAT4_ROTATE_Y(rotation[1]), out);
+1622:    UT.MAT4_MULTIPLY(out, UT.MAT4_ROTATE_X(rotation[0]), out); // y -> x -> z
+1623:    UT.MAT4_MULTIPLY(out, UT.MAT4_ROTATE_Z(rotation[2]), out);
+1624:    UT.MAT4_MULTIPLY(out, UT.MAT4_SCALE(scale[0], scale[1], scale[2]), out);
+1716:  static MAT4_LOOKAT(position: vec3, target: vec3, vertical: vec3 = UT.VEC3_UP, out: mat4 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]): mat4 {
+1717:    const axeZ = UT.VEC3_NORMALIZE(UT.VEC3_SUBSTRACT(position, target));
+1718:    vertical = UT.VEC3_NORMALIZE(vertical);
+1720:    if (Math.abs(UT.VEC3_DOT(axeZ, vertical)) > 1 - UT.EPSILON) {
+1721:      const arbitraryVec: vec3 = Math.abs(axeZ[1]) < 1 - UT.EPSILON ? [0, 1, 0] : [1, 0, 0];
+1722:      vertical = UT.VEC3_NORMALIZE(UT.VEC3_CROSS(arbitraryVec, axeZ));
+1725:    const axeX = UT.VEC3_NORMALIZE(UT.VEC3_CROSS(vertical, axeZ));
+1726:    const axeY = UT.VEC3_NORMALIZE(UT.VEC3_CROSS(axeZ, axeX));
+1834:  static MAP_VALUE_FROM_CURVE(value: number, curve: Array<CurveMapItem>, interpolateFn = UT.LINEAR) {
